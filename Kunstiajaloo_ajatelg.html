@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Kunstiajalugu</title>
+
+  <style>
+    body, html {
+      font-family: arial, sans-serif;
+      font-size: 11pt;
+    }
+
+    #visualization {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+    .vis-item.vis-line {
+      border-color: red;
+      border-width: 5px;
+    }
+    .vis-item.uldajalugu {
+      background-color: red;
+    }
+    .vis-item.kunstiajalugu {
+      background-color: greenyellow;
+    }
+    .vis-item.mesopotaamia {
+      background-color: rgb(133, 86, 0);
+      color: white;
+    }
+    .vis-item.egiptus {
+      background-color: orange;
+    }
+    .vis-item.egeus {
+      background-color: yellow;
+    }
+    .vis-item.vana-rooma {
+      background-color: royalblue;
+    }
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+<link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+  
+</head>
+<body>
+<header>
+  <div style="text-align: center;">
+    <h1>Kunstiajaloo ajatelg</h1>
+    <p>Kristjan Arusalu 140.a</p>
+  </div>
+</header>
+<div id="visualization"></div>
+
+<script>
+  function t(aasta) {
+    return new Date(aasta,0)
+  }
+  // create a data set with groups
+  var groups = new vis.DataSet([
+    {id: 'uldajalugu', content: 'Üldajalugu', sort: 9},
+    {id: 'kunstiajalugu', content: 'Üldine kunstiajalugu', sort: 1,},
+    {id: 'egiptus', content: 'Vana-Egiptuse kunst', sort: 2},
+    {id: 'mesopotaamia', content: 'Mesopotaamia kunst', sort: 3},
+    {id: 'egeus', content: 'Egeuse kunst', sort: 4},
+    {id: 'vana-kreeka', content: 'Vana-Kreeka kunst', sort: 5},
+    {id: 'vana-rooma', content: 'Vana-Rooma kunst', sort: 6}
+  ]);
+
+  // create a dataset with items
+  var K = 'kunstiajalugu';
+  var U = 'uldajalugu';
+  var E = 'egiptus';
+  var M = 'mesopotaamia';
+  var Eg = 'egeus';
+  var Kr = 'vana-kreeka';
+  var R = 'vana-rooma';
+  var massiiv = [
+    {content: 'Vanim inimkäega tehtud koopamaal', group: K, start: new Date(-73000,0)},
+    {content: 'Vanim kujutav koopamaal', group: K, start: new Date(-40000,0)},
+    {content: 'Inimkäe kujutised Pettakere koopas', group: K, start: new Date(-45000,0)},
+    {content: 'Paleoliitikum ehk vanem kiviaeg', group: U, start: new Date(-200000,0), end: new Date(-10000,0)},
+    {content: 'Mesoliitikum ehk keskmine kiviaeg', group: U, start: new Date(-10000,0), end: new Date(-5000,0)},
+    {content: 'Neoliitikum ehk noorem kiviaeg', group: U, start: new Date(-5000,0), end: new Date(-1800,0)},
+    {content: 'Lõvimees Hohlenstein-Stadel', group: K, start: new Date(-40000,0), end: new Date(-35000,0)},
+    {content: 'Hohle Felsi Veenus', group: K, start: new Date(-40000,0), end: new Date(-35000,0)},
+    {content: 'Dolní Věstonice Veenus', group: K, start: new Date(-29000,0), end: new Date(-25000,0)},
+    {content: 'Willendorfi Veenus', group: K, start: new Date(-25000,0)},
+    {content: 'Leitakse Willendorfi Veenus', group: U, start: new Date(1908,0)},
+    {content: 'Mammutikihvast Ujuv põhjapõder', group: K, start: new Date(-13000,0)},
+    {content: 'Ripats-amulett –Wolverine', group: K, start: new Date(-12500,0)},
+    {content: 'Chauvet´ koopamaalingud', group: K, start: new Date(-30000,0)},
+    {content: 'Avastati Chauvet´ koobas', group: U, start: new Date(1994,0)},
+    {content: 'Altamira koopamaalingud', group: K, start: new Date(-15000,0)},
+    {content: 'Avastati Altamira koopamaalingud', group: U, start: new Date(1879,0)},
+    {content: 'Lascaux koopamaalingud', group: K, start: new Date(-18000,0)},
+    {content: 'Avastati Lascaux koopamaalingud', group: U, start: new Date(1940,0)},
+    {content: 'Tassili kaljujoonised', group: K, start: new Date(-10000,0), end: new Date(-1000,0)},
+    {content: 'Menhir Kerloas', group: K, start: new Date(-5000,0), end: new Date(-4000,0)},
+    {content: 'Dolmen Poulnabrones', group: K, start: new Date(-4000,0), end: new Date(-3000,0)},
+    {content: 'Stonehenge kromlehh', group: K, start: new Date(-3500,0),end: new Date(-2000,0)},
+    {content: 'Jeeriko rajamine (üks vanim siiani asustatud linn)', group: U, start: new Date(-9000,0), end: new Date(-8000,0)},
+    {content: 'Äänisjärve petrogflüüfid', group: K, start: new Date(-4000,0),end: new Date(-2000,0)},
+    {content: 'Alta petroglüüfid', group: K, start: new Date(-4200,0),end: new Date(-500,0)},
+    {content: 'Kammkeraamika Eestis', group: U, start: new Date(-3900,0), end: new Date(-1750,0)},
+    {content: 'Banksy Peckham Rock', group: K, start: new Date(2005,0)},
+    {content: 'Banksy "Koopamaalide eemaldamine"', group: K, start: new Date(2008,0)},
+    {content: 'Sumerite linnriigid', group: M, start: new Date(-3000,0), end: new Date(-2340,0)},
+    {content: 'Akadi riik', group: M, start: new Date(-2340,0), end: new Date(-2160,0)},
+    {content: 'Semiidistunud sumerite linnriigid', group: M, start: new Date(-2065,0), end: new Date(-1970,0)},
+    {content: 'Vana-Babüloonia riik', group: M, start: new Date(-1792,0), end: new Date(-1595,0)},
+    {content: 'Assüüria impeerium', group: M, start: new Date(-934,0), end: new Date(-609,0)},
+    {content: 'Uus-Babüloonia', group: M, start: new Date(-626,0), end: new Date(-539,0)},
+    {content: 'Pärsia kuningas Kyros II vallutab Babüloni', group: M, start: new Date(-539,0)},
+    {content: 'Warka mask', group: M, start: t(-3100)},
+    {content: 'Uri standart', group: M, start: t(-2600)},
+    {content: 'Preester-kuningas Gudea skulptuur', group: M, start: t(-2099), end: t(-2000)},
+    {content: 'Hammurapi koodeks', group: M, start: t(-1750)},
+    {content: 'Etemenanki tsikuraadi ehitamine', group: M, start: t(-1399), end: t(-800)},
+    {content: 'Esimene Lamassu kujutis', group: M, start: t(-3000)},
+    {content: 'Ištari värav Babülonis', group: M, start: t(-575)},
+    {content: 'Ülem- ja Alam-Egiptuse ühendamine', group: E, start: t(-3000)},
+    {content: 'Vana riik', group: E, start: t(-2700), end: t(-2200)},
+    {content: 'Keskmine riik', group: E, start: t(-2000), end: t(-1650)},
+    {content: 'Uus riik', group: E, start: t(-1550), end: t(-1075)},
+    {content: 'Hilis-Egiptus', group: E, start: t(-1075), end: t(-525)},
+    {content: 'Pärslased vallutasid Egiptuse', group: E, start: t(-525)},
+    {content: 'Aleksander Suur – Ptolemaioste dünastia võim', group: E, start: t(-332)},
+    {content: 'Kleopatra surm, Egiptuse vallutab Rooma keiser Augustus', group: E, start: t(-30)},
+    {content: 'Egiptuse vallutavad araablased, algab islami ajajärk', group: E, start: t(650)},
+    {content: 'Džoseri astmikpüramiid', group: E, start: t(-2650)},
+    {content: 'Giza püramiidide ehitamine', group: E, start: t(-2575), end: t(-2465)},
+    {content: 'Karnaki templi ehitamine', group: E, start: t(-2000), end: t(-1000)},
+    {content: 'Karnaki templi leidmine', group: U, start: t(1938)},
+    {content: 'Luxori templi ehitamine', group: E, start: t(-1400)},
+    {content: 'Abu Simbeli templi rajamine', group: E, start: t(-1265)},
+    {content: 'Abu Simbeli templi ümber tõstmine', group: U, start: t(1968)},
+    {content: 'Ehnatoni ehk Amenhotep IV valitsusaeg', group: E, start: t(-1353), end: t(-1336)},
+    {content: 'Küklaadid', group: Eg, start: t(-3200), end: t(-2300)},
+    {content: 'Kreeta minoiline kultuur', group: Eg, start: t(-2000), end: t(-1400)},
+    {content: 'Mükeene kultuur', group: Eg, start: t(-1600), end: t(-1100)},
+    {content: 'Tume ajajärk', group: U, start: t(-1100), end: t(-800)},
+    {content: 'Knossose palee', group: Eg, start: t(-1900), end: t(-1100)},
+    {content: 'Mükeene Lõvivärav', group: Eg, start: t(-1250)},
+    {content: 'Arhailine periood', group: Kr, start: t(-800), end: t(-500)},
+    {content: 'Klassikaline periood', group: Kr, start: t(-500), end: t(-338)},
+    {content: 'Hellenistlik periood', group: Kr, start: t(-338), end: t(-30)},
+    {content: 'Kreeka ja Makedoonia Rooma võimu all', group: U, start: t(-146)},
+    {content: 'Parthenon (447-432)', group: Kr, start: t(-440)},
+    {content: 'Erechteioni tempel', group: Kr, start: t(-430)},
+    {content: 'Nike tempel', group: Kr, start: t(-420)},
+    {content: 'Samothrake Nike (200-190)', group: Kr, start: t(-195)},
+    {content: 'Punasefiguuriline vaasimaal', group: Kr, start: t(-530)},
+    {content: 'Etruskide kunst', group: K, start: t(-799), end: t(-200)},
+    {content: 'Etruskide "Abikaasade sarkofaag" (530-510)', group: K, start: t(-520)},
+    {content: 'Rooma linna asutamine (legend)', group: R, start: t(-753)},
+    {content: 'Kuningate ajajärk', group: R, start: t(-753), end: t(-509)},
+    {content: 'Vabariigi ajajärk', group: R, start: t(-509), end: t(-30)},
+    {content: 'Keisririigi ajajärk', group: R, start: t(-30), end: t(476)},
+    {content: 'Panteon (2. saj.)', group: R, start: t(150)},
+    {content: 'Traianuse Foorum (105-112)', group: R, start: t(107)},
+    {content: 'Diocletianuse termid (298-306)', group: R, start: t(300)},
+    {content: 'Caracalla termid (212-216)', group: R, start: t(214)},
+    {content: 'Keiser Constantinuse triumfikaar', group: R, start: t(315)},
+    {content: 'Tituse triumfikaar', group: R, start: t(81).setFullYear(81)}, // See prügi eeldab, et 1981
+    {content: 'Colosseum (72-80 m.a.j)', group: R, start: t(80).setFullYear(80)},
+    {content: 'Keiser Marcus Aureliuse ratsamonument', group: R, start: t(175)},
+    ];
+    //     {content: '', group: K, start: t()},
+    //     {content: '', group: K, start: t(), end: t()},
+  var items = new vis.DataSet();
+  var indeks = 1;
+  massiiv.forEach(function(item){
+    var uus_item = item;
+    uus_item['className'] = uus_item['group'];
+    uus_item['id'] = indeks;
+    items.add(uus_item);
+    indeks += 1;
+    })
+
+  // create visualization
+  var container = document.getElementById('visualization');
+  var options = {
+    groupOrder: 'sort',  // groupOrder can be a property name or a sorting function
+    start: new Date(-11000,0),
+    zoomMin: 1000 * 60 * 60 * 24 * 31 * 12 * 5,    // about 5 years in milliseconds
+    zoomMax: 1000 * 60 * 60 * 24 * 31 * 12 * 30000,     // about 31 000 years in milliseconds
+  };
+
+  var timeline = new vis.Timeline(container);
+  timeline.setOptions(options);
+  timeline.setGroups(groups);
+  timeline.setItems(items);
+</script>
+</body>
+</html>
