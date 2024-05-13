@@ -120,7 +120,7 @@
     {content: 'Diocletianuse termid (298-306)', group: R, start: t(300)},
     {content: 'Caracalla termid (212-216)', group: R, start: t(214)},
     {content: 'Keiser Constantinuse triumfikaar', group: R, start: t(315)},
-    {content: 'Tituse triumfikaar', group: R, start: t(81).setFullYear(81)}, // See prügi eeldab, et 1981
+    {content: 'Tituse triumfikaar (81)', group: R, start: t(81).setFullYear(81)}, // See prügi eeldab muidu, et 1981
     {content: 'Colosseum (72-80 m.a.j)', group: R, start: t(80).setFullYear(80)},
     {content: 'Keiser Marcus Aureliuse ratsamonument', group: R, start: t(175)},
     ];
@@ -130,6 +130,11 @@
   var indeks = 1;
   massiiv.forEach(function(item){
     var uus_item = item;
+    if('end' in uus_item){
+      uus_item['content'] = item['content']+' ('+uus_item['start'].getFullYear()+' ... '+uus_item['end'].getFullYear()+')'
+    }else if(Object.prototype.toString.call(uus_item['start'])=='[object Date]'&!(uus_item['content'].indexOf('(')>-1)){
+      uus_item['content'] = item['content']+' ('+uus_item['start'].getFullYear()+')';
+    }
     uus_item['className'] = uus_item['group'];
     uus_item['id'] = indeks;
     items.add(uus_item);
