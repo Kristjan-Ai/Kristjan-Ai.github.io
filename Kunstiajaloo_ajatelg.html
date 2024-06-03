@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header>Legend: <span id="mesopotaamia">Mesopotaamia</span> <span id="egiptus">Egiptus</span> <span id="egeus">Egeus</span> <span id="vana-kreeka">Vana-Kreeka</span> <span id="vana-rooma">Vana-Rooma</span> <span id="butsants">Bütsants</span></header>
+<header>Legend: <span id="mesopotaamia">Mesopotaamia</span> <span id="egiptus">Egiptus</span> <span id="egeus">Egeus</span> <span id="vana-kreeka">Vana-Kreeka</span> <span id="vana-rooma">Vana-Rooma</span> <span id="butsants">Bütsants</span> <span id="gooti">Gooti</span> <span id="romaani">Romaani</span> <span id="renessanss">Renessanss</span> <span id="varakristlik">Varakristlik</span></header>
 <div id="visualization"></div>
 
 <script>
@@ -153,8 +153,8 @@
     {content: 'Bayeux vaip (11. saj.)', group: J, subgroup: 'romaani', start: t(1050)},
     {content: 'Valjala kirik Saaremaal (13. saj.)', group: J, subgroup: 'romaani', start: t(1250)},
     {content: 'Varagootika', group: K, subgroup: G, start: t(1150), end: t(1200)},
-    {content: 'Kõrggootika', group: K, start: t(1201), subgroup: G, end: t(1400)},
-    {content: 'Hilisgootika', group: K, start: t(1401), subgroup: G, end: t(1500)},
+    {content: 'Kõrggootika', group: K, start: t(1200), subgroup: G, end: t(1400)},
+    {content: 'Hilisgootika', group: K, start: t(1400), subgroup: G, end: t(1500)},
     {content: 'Saint-Denis katedraal', img:'https://o.quizlet.com/e4JfFIZ04gGsfpSIW9Lp4g.jpg', group: J, subgroup: G, start: t(1144)},
     {content: 'Notre-Dame de Paris', img:'https://o.quizlet.com/i/Z_IxjZD7V_yy0kZmm7M2jg.jpg', group: J, subgroup: G, start: t(1200)},
     {content: 'Notre-Dame de Chartes (12-13. saj)', img:'https://o.quizlet.com/VAl2I-FkTMGQuNEQcRLnDg.jpg', group: J, subgroup: G, start: t(1200)},
@@ -177,6 +177,35 @@
     {content: 'Tallinna Raekoda', img: 'https://o.quizlet.com/y4VIzI4sSsS8z1LxtdnS8w.jpg', group: J, subgroup: G, start: t(1404)},
     {content: 'Suurgildi hoone', img: 'https://o.quizlet.com/xJteMf9S8IS.ujWte5WH.g.png', group: J, subgroup: G, start: t(1417)},
     {content: 'Donato Bramante Tempietto', img: 'https://o.quizlet.com/QQS2bHnHyxeZPz1wZjKLuQ.jpg', group: J, subgroup: R, start: t(1502)},
+    {content: 'Rooma Peetri kirik (1506-1626)', img: 'https://o.quizlet.com/eUMTgtA5958Mo65v8UjTjQ.png', group: J, subgroup: R, start: t(1561)},
+    {content: 'Villa Rotonda (16. saj.)', img: 'https://o.quizlet.com/Z8B54RxPR2GUS2aLY8UJNg.jpg', group: J, subgroup: R, start: t(1550)},
+    {content: 'Michelangelo - Taavet', img: 'https://o.quizlet.com/eMZT45MgN3JBSanPhLZ8tQ.jpg', group: J, subgroup: R, start: t(1504)},
+    {content: 'Michelangelo - Mooses', img: 'https://o.quizlet.com/2muYxXCrcnJZy-ifTi96kA.jpg', group: J, subgroup: R, start: t(1545)},
+    {content: 'Michelangelo - Pietá', img: 'https://o.quizlet.com/be7zUlz7G8.SmCN3Lgne4w.jpg', group: J, subgroup: R, start: t(1499)},
+    {content: 'Kapitooliumi väljak', img: 'https://o.quizlet.com/uXw0oHc9JbBjDqdOesAOXA.jpg', group: J, subgroup: R, start: t(1534)},
+    {content: 'Michelangelo - Sixtuse kabeli laemaal', img: 'https://o.quizlet.com/Xd8sDq6VqEzT41FLpaHAvA.jpg', group: J, subgroup: R, start: t(1512)},
+    {content: 'Michelangelo - Viimne kohtupäev', img: 'https://o.quizlet.com/8Az5X3d3AhZyZP65LdlbQg.jpg', group: J, subgroup: R, start: t(1541)},
+    {content: 'da Vinci - Püha õhtusöömaaeg', img: 'https://o.quizlet.com/i/9PVdelHjJG-2Tliex_pFxw.jpg', group: J, subgroup: R, start: t(1497)},
+    {content: 'da Vinci - Mona Lisa', img: 'https://o.quizlet.com/8U-MkZQbudcoUAKxSMr3gQ.jpg', group: J, subgroup: R, start: t(1507)},
+    {content: 'da Vinci - Vitruviuse mees', img: 'https://farm4.staticflickr.com/3391/3443283368_fb03a1257c.jpg', group: J, subgroup: R, start: t(1490)},
+    {content: 'Giorgione - Äike', img: 'https://o.quizlet.com/uVZR2.kZDm0Y-BTnMnzbQA.jpg', group: J, subgroup: R, start: t(1508)},
+    {content: 'Tizian - Urbino Venus', img: 'https://o.quizlet.com/i/1eaFZsG2LufDoflQRg9aRQ.jpg', group: J, subgroup: R, start: t(1538)},
+    {content: 'Leidlaste kodu Firenzes', img: 'https://farm4.staticflickr.com/3822/8841164645_b1929b433a.jpg', group: J, subgroup: R, start: t(1445)},
+    {content: 'Firenze toomkiriku nelitise kuppel', img: 'https://o.quizlet.com/mt73SVHDEoFStJEGDCbp7w.png', group: J, subgroup: R, start: t(1436)},
+    {content: 'Palazzo Pitti (15. saj.)', img: 'https://o.quizlet.com/kzt4BaRSiaP0jqsAqNgMMw.jpg', group: J, subgroup: R, start: t(1450)},
+    {content: 'Püha kolmainsus', img: 'https://o.quizlet.com/xFMMfiDPJafabxL9sBNlsQ.jpg', group: J, subgroup: R, start: t(1428)},
+    {content: 'Botticelli - Kevad', img: 'https://o.quizlet.com/NSxiw0sjLKegpjvy1ZmGvA.png', group: J, subgroup: R, start: t(1482)},
+    {content: 'Botticelli - Veenuse sünd', img: 'https://o.quizlet.com/l84k0SFIR8tJIN.kKw0EyQ.jpg', group: J, subgroup: R, start: t(1486)},
+    {content: 'Ghiberti - Paradiisiväravad', img: 'https://o.quizlet.com/i/Oph-IibXTYS9X5wtXDa9vw.jpg', group: J, subgroup: R, start: t(1451)},
+    {content: 'Donatello - Taavet', img: 'https://o.quizlet.com/7e4UYkYC6jJfhGh2HO5i2Q.jpg', group: J, subgroup: R, start: t(1440)},
+    {content: 'Vennad Eyckid - Genti altar', img: 'https://o.quizlet.com/GOp0qY1ATjm1IR7GrpGyAA.jpg', group: J, subgroup: R, start: t(1432)},
+    {content: 'Jan van Eyck - Abielupaar, Arnoflini portree', img: 'https://o.quizlet.com/7zJsAHpJX7KGMgPuj-e9jQ.jpg', group: J, subgroup: R, start: t(1434)},
+    {content: 'Pieter Brueghel vanem - Pime juhib pimedat', img: 'https://o.quizlet.com/EsRWpByepZbvbP68gesXTw.jpg', group: J, subgroup: R, start: t(1568)},
+    {content: 'Pieter Brueghel vanem - Paabeli torn', img: 'https://o.quizlet.com/C3HgB0EDbV5LXG.OCfc2rw.jpg', group: J, subgroup: R, start: t(1568)},
+    {content: 'Dürer - Püha Hieronymus', img: 'https://o.quizlet.com/tp.Q.zUBm.BCxgTZ1ywAQQ.jpg', group: J, subgroup: R, start: t(1514)},
+    {content: 'Sittow - Diego de Guevara portree', img: 'https://o.quizlet.com/Agxtm58k3yczh.g7X03kxw.jpg', group: J, subgroup: R, start: t(1517)},
+    {content: 'Sittow - Mary Rose Tudor', img: 'https://o.quizlet.com/So.0YrZK37AvZ31cyKnaqA.png', group: J, subgroup: R, start: t(1502)},
+    {content: 'Mustpeade maja', img: 'https://o.quizlet.com/fWmUOE2xph-7XUqaZBNHtQ.jpg', group: J, subgroup: R, start: t(1600)},
     ];
     //     {content: '', img: '', group: J, subgroup: R, start: t()},
     //     {content: '', group: , start: t(), end: t()},
@@ -184,14 +213,21 @@
   var indeks = 1;
   massiiv.forEach(function(item){
     var uus_item = item;
-    if('end' in uus_item){
+    // Year labels
+    if('end' in item){
       uus_item['content'] = item['content']+' ('+item['start'].getFullYear()+' ... '+item['end'].getFullYear()+')'
     }else if(Object.prototype.toString.call(item['start'])=='[object Date]'&!(item['content'].indexOf('(')>-1)){
       uus_item['content'] = item['content']+' ('+item['start'].getFullYear()+')';
     }
+    // Set class  for styling
     uus_item['className'] = item['group']+" "+item['subgroup'];
+    // Hack for subgroup
     if(['mesopotaamia','egiptus','egeus','vana-rooma','vana-kreeka'].includes(item['group'])){
       uus_item['group'] = 'antiik';
+    }
+    // Images
+    if('img' in item){
+      uus_item['content'] = '<div><img src=\"'+item['img']+'\" alt=\"Pilt\" width=\"auto\" height=\"100\"></div>'+uus_item['content']
     }
     uus_item['id'] = indeks;
     items.add(uus_item);
@@ -211,6 +247,7 @@
   timeline.setOptions(options);
   timeline.setGroups(groups);
   timeline.setItems(items);
+  alert("Kasuta hiire rullikut \"ajasamba\" kohal")
 </script>
 </body>
 </html>

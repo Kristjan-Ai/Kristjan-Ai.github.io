@@ -40,9 +40,20 @@ header {
 .vis-item.kristlik.butsants {
   background-color: aqua;
 }
+.vis-item.kristlik.romaani {
+  background-color: gray;
+}
+.vis-item.kristlik.gooti {
+  background-color: lightcoral;
+}
+.vis-item.kristlik.renessanss {
+  background-color: coral;
+}
+
 .vis-label.vis-group-level-0 {
   width: 200px !important; 
 }
+
 #mesopotaamia {
   background-color: rgb(133, 86, 0);
   color: white;
@@ -67,5 +78,21 @@ header {
 }
 #butsants {
   background-color: aqua;
+  padding: 2px;
+}
+#romaani {
+  background-color: gray;
+  padding: 2px;
+}
+#gooti {
+  background-color: lightcoral;
+  padding: 2px;
+}
+#renessanss {
+  background-color: coral;
+  padding: 2px;
+}
+#varakristlik {
+  background-color: #d5ddf6;
   padding: 2px;
 }
