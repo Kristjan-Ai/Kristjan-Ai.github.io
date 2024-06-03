@@ -30,6 +30,9 @@ header {
 .vis-item.egeus {
   background-color: yellow;
 }
+.vis-item.vana-kreeka {
+  background-color: lightcyan;
+}
 .vis-item.vana-rooma {
   background-color: royalblue;
   color: white;
@@ -59,7 +62,7 @@ header {
   padding: 2px;
 }
 #vana-kreeka {
-  background-color: #d5ddf6;
+  background-color: lightcyan;
   padding: 2px;
 }
 #butsants {

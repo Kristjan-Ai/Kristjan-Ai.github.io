@@ -18,10 +18,10 @@
   // create a data set with groups
   var groups = new vis.DataSet([
     {id: 'uldajalugu', content: 'Üldajalugu', sort: 9},
-    {id: 'kunstiajalugu', content: 'Üldine kunstiajalugu', sort: 1,},
+    {id: 'kunstiajalugu', content: 'Üldine kunstiajalugu', sort: 2,},
     {id: 'antiik', content: 
     '<span id="mesopotaamia">Mesopotaamia</span>, <span id="egiptus">Egiptuse</span>, <span id="egeus">Egeuse</span>, <span id="vana-kreeka">Vana-Kreeka</span> ja <span id="vana-rooma">Vana-Rooma</span> kunst', 
-    sort: 2},
+    sort: 1},
     {id: 'kristlik', content: 'Kristlik kunst', sort: 7},
   ]);
 
@@ -35,6 +35,8 @@
   var R = 'vana-rooma';
   var J = 'kristlik';
   var VK = 'varakeskaeg';
+  var G = 'gooti';
+  var R = 'renessanss';
   var massiiv = [
     {content: 'Vanim inimkäega tehtud koopamaal', group: K, start: new Date(-73000,0)},
     {content: 'Vanim kujutav koopamaal', group: K, start: new Date(-40000,0)},
@@ -42,9 +44,9 @@
     {content: 'Paleoliitikum ehk vanem kiviaeg', group: U, start: new Date(-200000,0), end: new Date(-10000,0)},
     {content: 'Mesoliitikum ehk keskmine kiviaeg', group: U, start: new Date(-10000,0), end: new Date(-5000,0)},
     {content: 'Neoliitikum ehk noorem kiviaeg', group: U, start: new Date(-5000,0), end: new Date(-1800,0)},
-    {content: 'Lõvimees Hohlenstein-Stadel', group: K, start: new Date(-40000,0), end: new Date(-35000,0)},
-    {content: 'Hohle Felsi Veenus', group: K, start: new Date(-40000,0), end: new Date(-35000,0)},
-    {content: 'Dolní Věstonice Veenus', group: K, start: new Date(-29000,0), end: new Date(-25000,0)},
+    {content: 'Lõvimees Hohlenstein-Stadel (40 000-35 000 e.m.a)', group: K, start: new Date(-37500,0)},
+    {content: 'Hohle Felsi Veenus (40 000-35 000 e.m.a)', group: K, start: new Date(-37500,0)},
+    {content: 'Dolní Věstonice Veenus (29 000-25 000 e.m.a)', group: K, start: new Date(-27000,0)},
     {content: 'Willendorfi Veenus', group: K, start: new Date(-25000,0)},
     {content: 'Leitakse Willendorfi Veenus', group: U, start: new Date(1908,0)},
     {content: 'Mammutikihvast Ujuv põhjapõder', group: K, start: new Date(-13000,0)},
@@ -55,11 +57,11 @@
     {content: 'Avastati Altamira koopamaalingud', group: U, start: new Date(1879,0)},
     {content: 'Lascaux koopamaalingud', group: K, start: new Date(-18000,0)},
     {content: 'Avastati Lascaux koopamaalingud', group: U, start: new Date(1940,0)},
-    {content: 'Tassili kaljujoonised', group: K, start: new Date(-10000,0), end: new Date(-1000,0)},
-    {content: 'Menhir Kerloas', group: K, start: new Date(-5000,0), end: new Date(-4000,0)},
-    {content: 'Dolmen Poulnabrones', group: K, start: new Date(-4000,0), end: new Date(-3000,0)},
-    {content: 'Stonehenge kromlehh', group: K, start: new Date(-3500,0),end: new Date(-2000,0)},
-    {content: 'Jeeriko rajamine - üks vanim siiani asustatud linn', group: U, start: new Date(-9000,0), end: new Date(-8000,0)},
+    {content: 'Tassili kaljujoonised (10 000-1000 e.m.a)', group: K, start: new Date(-5500,0)},
+    {content: 'Menhir Kerloas (5000-4000 e.m.a)', group: K, start: new Date(-4500,0)},
+    {content: 'Dolmen Poulnabrones (4000-3000 e.m.a)', group: K, start: new Date(-3500,0)},
+    {content: 'Stonehenge kromlehh (3500-2000 e.m.a)', group: K, start: new Date(-2750,0)},
+    {content: 'Jeeriko rajamine - üks vanim siiani asustatud linn (9000-8000 e.m.a)', group: U, start: new Date(-8500,0)},
     {content: 'Äänisjärve petrogflüüfid', group: K, start: new Date(-4000,0),end: new Date(-2000,0)},
     {content: 'Alta petroglüüfid', group: K, start: new Date(-4200,0),end: new Date(-500,0)},
     {content: 'Kammkeraamika Eestis', group: U, start: new Date(-3900,0), end: new Date(-1750,0)},
@@ -127,7 +129,7 @@
     {content: 'Keiser Marcus Aureliuse ratsamonument', group: R, start: t(175)},
     {content: 'Milaano edikt', group: U, start: t(313)},
     {content: 'Kristus Rooma ametlik religioon', group: U, start: t(380)},
-    {content: 'Junius Bassuse sarkofaag', group: J, start: t(350)},
+    {content: 'Junius Bassuse sarkofaag', img: 'https://o.quizlet.com/XBW-THDLTMWehUdRkldlWw.png', group: J, start: t(350)},
     {content: 'Konstantinoopoli rajamine', group: U, start: t(330)},
     {content: 'Rooma lõheneb', group: U, start: t(395)},
     {content: 'Antiikaja lõpp', group: U, start: t(476)},
@@ -147,11 +149,36 @@
     {content: 'Merovingid', group: U, start: t(401), end: t(700)},
     {content: 'Aacheni lossikabel Saksamaal (792-805)', group: J, subgroup: VK, start: t(800)},
     {content: 'Utrechti psalter (9. saj.)', group: J, subgroup: VK, start: t(850)},
-    {content: 'Romaani kunst', group: K, start: t(901), end: t(1200)},
+    {content: 'Romaani kunst', group: K, start: t(901), end: t(1150)},
     {content: 'Bayeux vaip (11. saj.)', group: J, subgroup: 'romaani', start: t(1050)},
     {content: 'Valjala kirik Saaremaal (13. saj.)', group: J, subgroup: 'romaani', start: t(1250)},
+    {content: 'Varagootika', group: K, subgroup: G, start: t(1150), end: t(1200)},
+    {content: 'Kõrggootika', group: K, start: t(1201), subgroup: G, end: t(1400)},
+    {content: 'Hilisgootika', group: K, start: t(1401), subgroup: G, end: t(1500)},
+    {content: 'Saint-Denis katedraal', img:'https://o.quizlet.com/e4JfFIZ04gGsfpSIW9Lp4g.jpg', group: J, subgroup: G, start: t(1144)},
+    {content: 'Notre-Dame de Paris', img:'https://o.quizlet.com/i/Z_IxjZD7V_yy0kZmm7M2jg.jpg', group: J, subgroup: G, start: t(1200)},
+    {content: 'Notre-Dame de Chartes (12-13. saj)', img:'https://o.quizlet.com/VAl2I-FkTMGQuNEQcRLnDg.jpg', group: J, subgroup: G, start: t(1200)},
+    {content: 'Notre-Dame de la Belle Verriere', img:'https://o.quizlet.com/i/BXsWALH2aSsW4Lq7HeBDkQ.jpg', group: J, subgroup: G, start: t(1200)},
+    {content: 'Notre-Dame de Reims (13-14. saj)',img:'https://o.quizlet.com/i/ZMhe6afiWY6INtGIrw1mYA.jpg', group: J, subgroup: G, start: t(1350)},
+    {content: 'Sainte-Chapelle kabel (13. saj.)',img:'https://o.quizlet.com/i/kBFm-wlr6kpy2_g5aHEzHA.jpg', group: J,subgroup: G, start: t(1250)},
+    {content: 'Westminster Abbey (13-15. saj)',img:'https://o.quizlet.com/fL3CtLuquUTCAZfiCd86pw.png', group: J, subgroup: G, start: t(1400)},
+    {content: 'Kölni katedraal (13-19. saj)',img:'https://o.quizlet.com/i/qgOtaAnA2lvXcuSVJ6EYZA.jpg', group: J, subgroup: G, start: t(1600)},
+    {content: 'Bambergi ratsanik (13. saj.)', img: 'https://o.quizlet.com/i/q9DHbxe3avGEFeKZqpmLVg.jpg', group: J, subgroup: G, start: t(1250)},
+    {content: 'Milaano toomkirik (14-20. saj)', img: 'https://o.quizlet.com/i/yCsVCq3nwQZCBdjkVs9Tkg.jpg', group: J, subgroup: G, start: t(1650)},
+    {content: 'Doodžide palee (14.-15. saj.)', img: 'https://o.quizlet.com/hfxE7-FxjymoyU2QF0cTfA.jpg', group: J, subgroup: G, start: t(1400)},
+    {content: 'Hertsog Berry tundideraamat', img: 'https://o.quizlet.com/mMWkhRTHMtStKEW7F5920Q.jpg', group: J, subgroup: G, start: t(1416)},
+    {content: 'Tartu toomkirik (13-16. saj.)', img: 'https://o.quizlet.com/7RIp6ca56EJVs54MRRoA0Q.jpg', group: J, subgroup: G, start: t(1350)},
+    {content: 'Tallinna Niguliste kirik (13. saj.)', img: 'https://o.quizlet.com/07d9UfiYHxv2O.8zDBuk0w.jpg', group: J, subgroup: G, start: t(1250)},
+    {content: 'Rode altar Niguliste kirikus', img: 'https://o.quizlet.com/xDyHw249PeMjF354rTwD0Q.jpg', group: J, subgroup: G, start: t(1481)},
+    {content: 'Bernt Notke Surmatants (15. saj.)', img: 'https://o.quizlet.com/2gXaUG4MWSAHyd0-jQXeOQ.jpg', group: J, subgroup: G, start: t(1450)},
+    {content: 'Pühavaimu kirik (14. saj.)', img: 'https://o.quizlet.com/5yJrFp3ihfUSi77ucwdljQ.jpg', group: J, subgroup: G, start: t(1350)},
+    {content: 'Oleviste kirik (13. saj.)', img: 'https://o.quizlet.com/96FM-.y2wgrE02TVFsllfg.jpg', group: J, subgroup: G, start: t(1250)},
+    {content: 'Pirita klooster', img: 'https://farm1.staticflickr.com/31/52473058_115d7dc82c.jpg', group: J, subgroup: G, start: t(1436)},
+    {content: 'Tallinna Raekoda', img: 'https://o.quizlet.com/y4VIzI4sSsS8z1LxtdnS8w.jpg', group: J, subgroup: G, start: t(1404)},
+    {content: 'Suurgildi hoone', img: 'https://o.quizlet.com/xJteMf9S8IS.ujWte5WH.g.png', group: J, subgroup: G, start: t(1417)},
+    {content: 'Donato Bramante Tempietto', img: 'https://o.quizlet.com/QQS2bHnHyxeZPz1wZjKLuQ.jpg', group: J, subgroup: R, start: t(1502)},
     ];
-    //     {content: '', group: , start: t()},
+    //     {content: '', img: '', group: J, subgroup: R, start: t()},
     //     {content: '', group: , start: t(), end: t()},
   var items = new vis.DataSet();
   var indeks = 1;
@@ -175,9 +202,9 @@
   var container = document.getElementById('visualization');
   var options = {
     groupOrder: 'sort',  // groupOrder can be a property name or a sorting function
-    start: new Date(-3000,0),
+//    start: new Date(-3000,0),
     zoomMin: 1000 * 60 * 60 * 24 * 31 * 12 * 5,    // about 5 years in milliseconds
-    zoomMax: 1000 * 60 * 60 * 24 * 31 * 12 * 3000,     // about 31 000 years in milliseconds
+    zoomMax: 1000 * 60 * 60 * 24 * 31 * 12 * 300000,     // about .. years in milliseconds
   };
 
   var timeline = new vis.Timeline(container);
